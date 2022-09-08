@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.LinkShortening.Web", "PS.LinkShortening.Web\PS.LinkShortening.Web.csproj", "{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{7D99E007-2D02-4E6D-8E13-E567921E1BCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5DB2A3FD-4DBA-48A1-8FDA-B008A9360DD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{82235523-8E1C-4E2F-B952-0730E42CE534}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{3793A40D-083B-4B77-9BAC-1BFDEA493B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.LinkShortening.DAL", "PS.LinkShortening.DAL\PS.LinkShortening.DAL.csproj", "{8EC338BE-CE96-4EBC-BCED-091A6352D0EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.LinkShortening.Domain", "PS.LinkShortening.Domain\PS.LinkShortening.Domain.csproj", "{C3F473F1-F569-4A63-B522-9195C06205AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.LinkShortening.Service", "PS.LinkShortening.Service\PS.LinkShortening.Service.csproj", "{E21460AB-9608-421C-A4A5-C2FFF5C25086}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC338BE-CE96-4EBC-BCED-091A6352D0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC338BE-CE96-4EBC-BCED-091A6352D0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC338BE-CE96-4EBC-BCED-091A6352D0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC338BE-CE96-4EBC-BCED-091A6352D0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F473F1-F569-4A63-B522-9195C06205AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F473F1-F569-4A63-B522-9195C06205AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3F473F1-F569-4A63-B522-9195C06205AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3F473F1-F569-4A63-B522-9195C06205AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E21460AB-9608-421C-A4A5-C2FFF5C25086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E21460AB-9608-421C-A4A5-C2FFF5C25086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E21460AB-9608-421C-A4A5-C2FFF5C25086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E21460AB-9608-421C-A4A5-C2FFF5C25086}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B717F86-DE8E-475F-BAFD-C6CF38BE56B7} = {82235523-8E1C-4E2F-B952-0730E42CE534}
+		{8EC338BE-CE96-4EBC-BCED-091A6352D0EC} = {7D99E007-2D02-4E6D-8E13-E567921E1BCA}
+		{C3F473F1-F569-4A63-B522-9195C06205AC} = {5DB2A3FD-4DBA-48A1-8FDA-B008A9360DD3}
+		{E21460AB-9608-421C-A4A5-C2FFF5C25086} = {3793A40D-083B-4B77-9BAC-1BFDEA493B7A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70194C38-7007-4CED-AAA3-ABDF3E600F8C}
+	EndGlobalSection
+EndGlobal

@@ -79,7 +79,31 @@ namespace PS.LinkShortening.Service.Implementations
 
         public async Task<IBaseResponse<Link>> CreateLinkAsync(Link model)
         {
-            throw new NotImplementedException();
+            var baseResponse = new BaseResponse<Link>();
+
+
+            try
+            {
+                var link = await _dbLinkRepository.AddAsync(model);
+
+                if (link == null)
+                {
+                    baseResponse.Description = "Link not found";
+                    baseResponse.StatusCode = StatusCode.NotFound;
+                }
+                baseResponse.StatusCode = StatusCode.OK;
+                baseResponse.Data = link;
+                return baseResponse;
+
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<Link>()
+                {
+                    Description = baseResponse.Description = $"[CreateLinkAsync] : {e.Message}",
+                    StatusCode = baseResponse.StatusCode = StatusCode.InternalServerError
+                };
+            }
         }
 
         public async Task<IBaseResponse<Link>> UpdateLinkAsync(Link model)

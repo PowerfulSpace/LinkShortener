@@ -1,9 +1,4 @@
 ﻿using PS.LinkShortening.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PS.LinkShortening.Domain.Responses
 {

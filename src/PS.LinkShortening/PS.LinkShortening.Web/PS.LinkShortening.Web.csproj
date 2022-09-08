@@ -10,4 +10,9 @@
     <ProjectReference Include="..\PS.LinkShortening.Service\PS.LinkShortening.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Definitions\DbContext\" />
+    <Folder Include="Definitions\DependencyInjection\" />
+  </ItemGroup>
+
 </Project>

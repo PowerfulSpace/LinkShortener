@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PS.LinkShortening.Domain.Entities;
 
-namespace PS.LinkShortening.Web.Data
+namespace PS.LinkShortening.DAL.Data
 {
     public class ApplicationDbContext : DbContext
     {

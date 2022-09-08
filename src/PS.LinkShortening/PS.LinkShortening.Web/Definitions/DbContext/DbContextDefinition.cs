@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PS.LinkShortening.Web.Data;
+using PS.LinkShortening.DAL.Data;
 using PS.LinkShortening.Web.Definitions.Base;
 
 namespace PS.LinkShortening.Web.Definitions.DbContext

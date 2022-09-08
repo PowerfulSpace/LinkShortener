@@ -137,7 +137,31 @@ namespace PS.LinkShortening.Service.Implementations
 
         public async Task<IBaseResponse<Link>> DeleteLinkAsync(Link model)
         {
-            throw new NotImplementedException();
+            var baseResponse = new BaseResponse<Link>();
+
+
+            try
+            {
+                var link = await _dbLinkRepository.DeleteAsync(model);
+
+                if (link == null)
+                {
+                    baseResponse.Description = "Link not found";
+                    baseResponse.StatusCode = StatusCode.NotFound;
+                }
+                baseResponse.StatusCode = StatusCode.OK;
+                baseResponse.Data = link;
+                return baseResponse;
+
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<Link>()
+                {
+                    Description = baseResponse.Description = $"[DeleteLinkAsync] : {e.Message}",
+                    StatusCode = baseResponse.StatusCode = StatusCode.InternalServerError
+                };
+            }
         }
     }
 }

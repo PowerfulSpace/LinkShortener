@@ -1,29 +1,104 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PS.LinkShortening.Domain.Entities;
+using PS.LinkShortening.Service.Interfaces;
 
 namespace PS.LinkShortening.Web.Controllers
 {
     public class LinkController : Controller
     {
-        public IActionResult Index()
+
+        private readonly ILinkService _dbLinkService;
+        public LinkController(ILinkService dbUnitService) => _dbLinkService = dbUnitService;
+
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var response = await _dbLinkService.GetAllLinksAsync();
+
+            if(response.StatusCode != Domain.Enums.StatusCode.OK)
+            {
+                return RedirectToAction("Error");
+            }
+
+            return View(response.Data);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var link = new Link();
+            return View(link);
         }
-        public IActionResult Edit()
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Link model)
         {
-            return View();
+            if (!ModelState.IsValid) { return View(model); }
+
+            await _dbLinkService.CreateLinkAsync(model);
+
+            return RedirectToAction(nameof(Index));
         }
-        public IActionResult Delete()
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var response = await _dbLinkService.GetLinkAsync(id);
+
+            if (response.StatusCode != Domain.Enums.StatusCode.OK)
+            {
+                return RedirectToAction("Error");
+            }
+
+            return View(response.Data);
         }
-        public IActionResult Details()
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Link model)
         {
-            return View();
+            if (!ModelState.IsValid) { return View(model); }
+
+            await _dbLinkService.UpdateLinkAsync(model);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var response = await _dbLinkService.GetLinkAsync(id);
+
+            if (response.StatusCode != Domain.Enums.StatusCode.OK)
+            {
+                return RedirectToAction("Error");
+            }
+
+            return View(response.Data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Link model)
+        {
+            if (model == null) { return View(model); }
+
+            await _dbLinkService.DeleteLinkAsync(model);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var response = await _dbLinkService.GetLinkAsync(id);
+
+            if (response.StatusCode != Domain.Enums.StatusCode.OK)
+            {
+                return RedirectToAction("Error");
+            }
+
+            return View(response.Data);
         }
 
 

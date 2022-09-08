@@ -10,4 +10,10 @@
     <ProjectReference Include="..\PS.LinkShortening.DAL\PS.LinkShortening.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementations\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
 </Project>

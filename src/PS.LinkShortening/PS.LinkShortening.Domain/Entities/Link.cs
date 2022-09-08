@@ -11,5 +11,6 @@ namespace PS.LinkShortening.Domain.Entities
         public string ShortURL { get; set; } = null!;
         public DateTime DateCreated { get; set; }
         public int CountTransitions { get; set; }
+
     }
 }

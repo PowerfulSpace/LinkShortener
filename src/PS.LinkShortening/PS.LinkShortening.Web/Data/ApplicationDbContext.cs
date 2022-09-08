@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PS.LinkShortening.Web.Models;
+using PS.LinkShortening.Domain.Entities;
 
 namespace PS.LinkShortening.Web.Data
 {

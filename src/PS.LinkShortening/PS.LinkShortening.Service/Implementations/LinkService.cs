@@ -18,12 +18,36 @@ namespace PS.LinkShortening.Service.Implementations
         public LinkService(ILink dbContextRepository) => _dbLinkRepository = dbContextRepository;
 
 
-        public async Task<IBaseResponse<Link>> GetUnitAsync(int id)
+        public async Task<IBaseResponse<Link>> GetLinkAsync(int id)
         {
-            throw new NotImplementedException();
+            var baseResponse = new BaseResponse<Link>();
+
+
+            try
+            {
+                var link = await _dbLinkRepository.GetAsync(id);
+
+                if (link == null)
+                {
+                    baseResponse.Description = "Link not found";
+                    baseResponse.StatusCode = StatusCode.NotFound;
+                }
+                baseResponse.StatusCode = StatusCode.OK;
+                baseResponse.Data = link;
+                return baseResponse;
+
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<Link>()
+                {
+                    Description = baseResponse.Description = $"[GetAllLinksAsync] : {e.Message}",
+                    StatusCode = baseResponse.StatusCode = StatusCode.InternalServerError
+                };
+            }
         }
 
-        public async Task<IBaseResponse<IEnumerable<Link>>> GetAllUnitsAsync()
+        public async Task<IBaseResponse<IEnumerable<Link>>> GetAllLinksAsync()
         {
             var baseResponse = new BaseResponse<IEnumerable<Link>>();
 
@@ -34,10 +58,10 @@ namespace PS.LinkShortening.Service.Implementations
 
                 if(links == null)
                 {
-                    baseResponse.Description = "Link not found";
+                    baseResponse.Description = "Links not found";
                     baseResponse.StatusCode = StatusCode.NotFound;
                 }
-                baseResponse.StatusCode = StatusCode.NotFound;
+                baseResponse.StatusCode = StatusCode.OK;
                 baseResponse.Data = links;
                 return baseResponse;
 
@@ -46,24 +70,24 @@ namespace PS.LinkShortening.Service.Implementations
             {
                 return new BaseResponse<IEnumerable<Link>>()
                 {
-                    Description = baseResponse.Description = $"[GetAllUnitsAsync] : {e.Message}",
-                    StatusCode = baseResponse.StatusCode = StatusCode.NotFound
+                    Description = baseResponse.Description = $"[GetAllLinksAsync] : {e.Message}",
+                    StatusCode = baseResponse.StatusCode = StatusCode.InternalServerError
                 };
             }
 
         }
 
-        public async Task<IBaseResponse<Link>> CreateUnitAsync(Link model)
+        public async Task<IBaseResponse<Link>> CreateLinkAsync(Link model)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IBaseResponse<Link>> UpdateUnitAsync(Link model)
+        public async Task<IBaseResponse<Link>> UpdateLinkAsync(Link model)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IBaseResponse<Link>> DeleteUnitAsync(Link model)
+        public async Task<IBaseResponse<Link>> DeleteLinkAsync(Link model)
         {
             throw new NotImplementedException();
         }

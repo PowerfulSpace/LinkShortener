@@ -1,44 +1,64 @@
 ﻿@model IEnumerable<Link>
 
-<table class="table">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+
+<table class="table table-bordered text-center">
     <thead>
-        <tr>
-            <th>
+        <tr class="row col-12">
+            <th td class="col-4">
                 @Html.DisplayNameFor(model => model.LongURL)
             </th>
-            <th>
+            <th class="col-2">
                 @Html.DisplayNameFor(model => model.ShortURL)
             </th>
-            <th>
+            <th class="col-2">
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
-            <th>
+            <th class="col-2">
                 @Html.DisplayNameFor(model => model.CountTransitions)
             </th>
-            <th></th>
+            <th class="col-2"></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LongURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountTransitions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr class="row col-12">
+                <td class="col-4 navbar-nav-scroll">
+                    @Html.DisplayFor(modelItem => item.LongURL)
+                </td>
+                <td class="col-2 navbar-nav-scroll">
+                    @Html.DisplayFor(modelItem => item.ShortURL)
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.CountTransitions)
+                </td>
+                <td class="col-2 ">
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@item.Id">
+                            <span class="btn btn-sm btn-outline-secondary">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <span class="btn btn-sm btn-outline-secondary">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id">
+                            <span class="btn btn-sm btn-outline-secondary">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

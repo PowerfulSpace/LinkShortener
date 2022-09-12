@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PS.LinkShortening.Domain.Entities;
+using PS.LinkShortening.Domain.ViewModels;
 using PS.LinkShortening.Service.Interfaces;
 
 namespace PS.LinkShortening.Web.Controllers
@@ -26,16 +27,22 @@ namespace PS.LinkShortening.Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var link = new Link();
+            var link = new LinkCreateViewModel();
             return View(link);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Link model)
+        public async Task<IActionResult> Create(LinkCreateViewModel model)
         {
             if (!ModelState.IsValid) { return View(model); }
 
-            await _dbLinkService.CreateLinkAsync(model);
+            var link = new Link()
+            {
+                LongURL = model.LongURL,
+                DateCreated = DateTime.UtcNow
+            };
+
+            await _dbLinkService.CreateLinkAsync(link);
 
             return RedirectToAction(nameof(Index));
         }

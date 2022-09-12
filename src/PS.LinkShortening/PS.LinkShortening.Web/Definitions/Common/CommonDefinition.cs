@@ -7,7 +7,8 @@ namespace PS.LinkShortening.Web.Definitions.Common
 
         public override void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
         }
 
         public override void ConfigureApplication(WebApplication app, IWebHostEnvironment environment)

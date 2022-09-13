@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
 
-<table class="table table-bordered text-center">
+<table class="table table-bordered text-center" style="max-block-size:fit-content">
     <thead>
         <tr class="row col-12">
             <th td class="col-4">
@@ -26,10 +26,10 @@
         {
             <tr class="row col-12">
                 <td class="col-4 navbar-nav-scroll ">
-                    <a href=" @Html.DisplayFor(modelItem => item.LongURL)" target="_blank"> @Html.DisplayFor(modelItem => item.LongURL)</a>
+                    <a class="text-secondary" href=" @Html.DisplayFor(modelItem => item.LongURL)" target="_blank"> @Html.DisplayFor(modelItem => item.LongURL)</a>
                 </td>
                 <td class="col-2 navbar-nav-scroll">
-                    <a href="@Html.DisplayFor(modelItem => item.Url)" target="_blank">@Html.DisplayFor(modelItem => item.Url)</a>
+                    <a class="text-secondary" href="@Html.DisplayFor(modelItem => item.Url)" target="_blank">@Html.DisplayFor(modelItem => item.Url)</a>
                 </td>
                 <td class="col-2">
                    @Html.DisplayFor(modelItem => item.DateCreated)

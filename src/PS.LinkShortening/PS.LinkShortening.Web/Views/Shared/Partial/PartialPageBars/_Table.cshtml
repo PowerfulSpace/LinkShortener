@@ -5,8 +5,8 @@
 
 <table class="table table-bordered text-center" style="max-block-size:fit-content">
     <thead>
-        <tr class="row col-12">
-            <th td class="col-4">
+        <tr class="row col-12 text-secondary">
+            <th td class="col-4 ">
                 @Html.DisplayNameFor(model => model.LongURL)
             </th>
             <th class="col-2">
@@ -32,30 +32,36 @@
                     <a class="text-secondary" href="@Html.DisplayFor(modelItem => item.Url)" target="_blank">@Html.DisplayFor(modelItem => item.Url)</a>
                 </td>
                 <td class="col-2">
-                   @Html.DisplayFor(modelItem => item.DateCreated)
+                    @Html.DisplayFor(modelItem => item.DateCreated)
                 </td>
                 <td class="col-2">
                     @Html.DisplayFor(modelItem => item.CountTransitions)
                 </td>
                 <td class="col-2 ">
                     <div class="btn-group">
-                        <a asp-action="Edit" asp-route-id="@item.Id">
-                            <span class="btn btn-sm btn-outline-secondary">
-                                <i class="fa fa-edit" aria-hidden="true"></i>
-                            </span>
-                        </a>
-
-                        <a asp-action="Details" asp-route-id="@item.Id">
-                            <span class="btn btn-sm btn-outline-secondary">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </span>
-                        </a>
-
-                        <a asp-action="Delete" asp-route-id="@item.Id">
-                            <span class="btn btn-sm btn-outline-secondary">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </span>
-                        </a>
+                        <div class="row col-12">
+                            <div class="col-4">
+                                <a asp-action="Edit" asp-route-id="@item.Id">
+                                    <span class="btn btn-sm btn-outline-secondary">
+                                        <i class="fa fa-edit fs-4" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a asp-action="Details" asp-route-id="@item.Id">
+                                    <span class="btn btn-sm btn-outline-secondary">
+                                        <i class="fa fa-eye fs-4" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a asp-action="Delete" asp-route-id="@item.Id">
+                                    <span class="btn btn-sm btn-outline-secondary">
+                                        <i class="fa fa-trash fs-4" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </td>
             </tr>

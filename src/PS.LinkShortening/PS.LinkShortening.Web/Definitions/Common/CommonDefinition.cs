@@ -1,4 +1,5 @@
-﻿using PS.LinkShortening.Web.Definitions.Base;
+﻿using PS.LinkShortening.Service.Models.Settings;
+using PS.LinkShortening.Web.Definitions.Base;
 
 namespace PS.LinkShortening.Web.Definitions.Common
 {
@@ -7,6 +8,15 @@ namespace PS.LinkShortening.Web.Definitions.Common
 
         public override void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+
+            services.Configure<AppSettings>(configuration);
+            var config = configuration.Get<AppSettings>();
+
+            services.AddMemoryCache(options =>
+            {
+                options.SizeLimit = config.Cache.ItemLimit;
+            });
+
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
         }

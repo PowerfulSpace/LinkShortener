@@ -10,7 +10,7 @@ namespace PS.LinkShortening.Domain.ViewModels
         public string? Text { get; set; }
         public string? ErrorMessage { get; set; }
 
-        public string? GoogleAnalyticsId { get; internal set; }
-        public string? GoogleReCaptchaKey { get; internal set; }
+        public string? GoogleAnalyticsId { get; set; }
+        public string? GoogleReCaptchaKey { get; set; }
     }
 }

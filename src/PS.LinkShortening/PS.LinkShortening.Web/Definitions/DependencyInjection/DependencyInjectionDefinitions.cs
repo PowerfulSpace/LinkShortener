@@ -12,6 +12,7 @@ namespace PS.LinkShortening.Web.Definitions.DependencyInjection
         {
             services.AddScoped<ILink, LinkRepository>();
             services.AddScoped<ILinkService, LinkService>();
+            services.AddScoped<IShortUrlLinkService, ShortUrlLinkService>();
         }
     }
 }

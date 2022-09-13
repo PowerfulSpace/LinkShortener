@@ -103,7 +103,10 @@ namespace PS.LinkShortening.Service.Implementations
                     baseResponse.Description = "Link not found";
                     baseResponse.StatusCode = StatusCode.NotFound;
                 }
-                link!.CountTransitions++;
+
+                //link!.CountTransitions = link!.CountTransitions + 1;
+                //link = await _dbLinkRepository.EditAsync(link);
+
                 baseResponse.StatusCode = StatusCode.OK;
                 baseResponse.Data = link;
                 return baseResponse;

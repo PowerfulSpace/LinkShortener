@@ -48,6 +48,8 @@ namespace PS.LinkShortening.Web.Controllers
                 var response = await _shortUrlService.GetAsync(key);
                 item = response.Data;
 
+                await _dbLinkService.UpdateLinkAsync(item!);
+
                 if (response.StatusCode != Domain.Enums.StatusCode.OK)
                 {
                     return RedirectToAction("Error");

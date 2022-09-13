@@ -5,5 +5,6 @@ namespace PS.LinkShortening.DAL.Interfaces
 {
     public interface ILink : IBaseRepository<Link>
     {
+
     }
 }

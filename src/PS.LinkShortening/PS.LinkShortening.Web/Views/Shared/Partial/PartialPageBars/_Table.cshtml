@@ -26,10 +26,10 @@
         {
             <tr class="row col-12">
                 <td class="col-4 navbar-nav-scroll">
-                    @Html.DisplayFor(modelItem => item.LongURL)
+                    <a href=" @Html.DisplayFor(modelItem => item.LongURL)" target="_blank"> @Html.DisplayFor(modelItem => item.LongURL)</a>
                 </td>
                 <td class="col-2 navbar-nav-scroll">
-                    @Html.DisplayFor(modelItem => item.Url)
+                    <a href="@Html.DisplayFor(modelItem => item.Url)" target="_blank">@Html.DisplayFor(modelItem => item.Url)</a>
                 </td>
                 <td class="col-2">
                    @Html.DisplayFor(modelItem => item.DateCreated)

@@ -4,9 +4,13 @@ namespace PS.LinkShortening.Domain.ViewModels
 {
     public class LinkCreateViewModel
     {
-        public int Id { get; set; }
 
         [Required]
-        public string LongURL { get; set; } = null!;
+        public string? Url { get; set; } = null!;
+        public string? Text { get; set; }
+        public string? ErrorMessage { get; set; }
+
+        public string? GoogleAnalyticsId { get; internal set; }
+        public string? GoogleReCaptchaKey { get; internal set; }
     }
 }

@@ -38,7 +38,7 @@ namespace PS.LinkShortening.Web.Controllers
 
             var link = new Link()
             {
-                LongURL = model.LongURL,
+                LongURL = model.Url,
                 DateCreated = DateTime.UtcNow
             };
 

@@ -11,6 +11,7 @@ namespace PS.LinkShortening.DAL.Data
         }
 
         public DbSet<Link> Links { get; set; } = null!;
+        public DbSet<AuthTokenItem> AuthTokenItems { get; set; } = null!;
 
     }
 }

@@ -9,6 +9,7 @@ namespace PS.LinkShortening.Web.Definitions.DbContext
         public override void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationDbContext>(x => x.UseNpgsql(configuration.GetConnectionString("NpgsqlConntextion")));
         }
     }
 }

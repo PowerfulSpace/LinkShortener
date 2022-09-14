@@ -8,9 +8,9 @@ namespace PS.LinkShortening.Web.Definitions.DbContext
     {
         public override void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<ApplicationDbContext>(x => x.UseNpgsql(configuration.GetConnectionString("NpgsqlConntextion")));
-            //services.AddDbContext<ApplicationDbContext>(x => x.UseMySql(configuration.GetConnectionString("MysqlConntextion"), new MySqlServerVersion(new Version(8, 0, 20))));
+            services.AddDbContext<ApplicationDbContext>(x => x.UseMySql(configuration.GetConnectionString("MysqlConntextion"), new MySqlServerVersion(new Version(8, 0, 20))));
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IBaseRepository<T>
     {
-        public Task<T> GetAsync(int id);
+        public Task<T> GetAsync(Guid id);
         public IQueryable<T> GetAll();
 
         public Task<T> AddAsync(T entity);

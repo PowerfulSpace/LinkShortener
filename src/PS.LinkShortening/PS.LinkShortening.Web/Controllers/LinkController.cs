@@ -138,7 +138,7 @@ namespace PS.LinkShortening.Web.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(Guid id)
         {
             var response = await _dbLinkService.GetLinkAsync(id);
 
@@ -162,7 +162,7 @@ namespace PS.LinkShortening.Web.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var response = await _dbLinkService.GetLinkAsync(id);
 
@@ -185,7 +185,7 @@ namespace PS.LinkShortening.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(Guid id)
         {
             var response = await _dbLinkService.GetLinkAsync(id);
 

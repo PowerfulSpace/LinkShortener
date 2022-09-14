@@ -8,7 +8,7 @@ namespace PS.LinkShortening.Domain.Entities
     public class Link
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(10)]

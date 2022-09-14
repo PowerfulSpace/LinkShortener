@@ -13,7 +13,7 @@ namespace PS.LinkShortening.DAL.Repositories
 
         public IQueryable<Link> GetAll() => _dbContext.Links;
 
-        public async Task<Link> GetAsync(int id) => await _dbContext.Links.FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<Link> GetAsync(Guid id) => await _dbContext.Links.FirstOrDefaultAsync(x => x.Id == id);
 
 
         public async Task<Link> AddAsync(Link entity)

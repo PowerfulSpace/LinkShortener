@@ -13,7 +13,7 @@ namespace PS.LinkShortening.Service.Implementations
         public LinkService(ILink dbContextRepository) => _dbLinkRepository = dbContextRepository;
 
 
-        public async Task<IBaseResponse<Link>> GetLinkAsync(int id)
+        public async Task<IBaseResponse<Link>> GetLinkAsync(Guid id)
         {
             var baseResponse = new BaseResponse<Link>();
 

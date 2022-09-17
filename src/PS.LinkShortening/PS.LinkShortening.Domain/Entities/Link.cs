@@ -14,7 +14,6 @@ namespace PS.LinkShortening.Domain.Entities
         [MaxLength(10)]
         public string Key { get; set; } = null!;
 
-        [Required]
         [MaxLength(512)]
         public string? Url { get; set; } = null!;
         public string? LongURL { get; set; } = null!;

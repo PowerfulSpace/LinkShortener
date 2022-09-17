@@ -61,8 +61,7 @@ namespace PS.LinkShortening.Web.Controllers
                 _logger.LogError(ex, $"Fetching short url for: {key}");
                 return View(new LinkCreateViewModel()
                 {
-                    GoogleAnalyticsId = _config.Google.AnalyticsId,
-                    ErrorMessage = "Error creating short url. Check error logs for details."
+                    ErrorMessage = "Error creating short url."
                 });
             }
 
@@ -70,7 +69,6 @@ namespace PS.LinkShortening.Web.Controllers
             {
                 return View(new LinkCreateViewModel
                 {
-                    GoogleAnalyticsId = _config.Google.AnalyticsId,
                     Text = "Unknown short url"
                 });
             }
@@ -112,14 +110,16 @@ namespace PS.LinkShortening.Web.Controllers
                     DateCreated = DateTime.UtcNow
                 };
 
-                var key = UrlHelpers.GetRandomKey(_config.Url);
-                link.Key = key;
+                await CreateShortUrl(link);
 
-                var shortUrl = UrlHelpers.GetShortUrl(_config.Url.OverrideUrl!, Request, link.Key);
-                model.Text = $"New short url created";
-                model.Url = shortUrl;
+                //var key = UrlHelpers.GetRandomKey(_config.Url);
+                //link.Key = key;
 
-                link.Url = shortUrl;
+                //var shortUrl = UrlHelpers.GetShortUrl(_config.Url.OverrideUrl!, Request, link.Key);
+                //model.Text = $"New short url created";
+                //model.Url = shortUrl;
+
+                //link.Url = shortUrl;
 
                 try
                 {
@@ -153,7 +153,11 @@ namespace PS.LinkShortening.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Link model)
         {
-            if (!ModelState.IsValid) { return View(model); }
+            //if (!ModelState.IsValid) { return View(model); }
+
+            await CreateShortUrl(model);
+
+            model.DateCreated = DateTime.UtcNow;
 
             await _dbLinkService.UpdateLinkAsync(model);
 
@@ -195,6 +199,19 @@ namespace PS.LinkShortening.Web.Controllers
             }
 
             return View(response.Data);
+        }
+
+
+        private Task CreateShortUrl(Link link)
+        {
+            var key = UrlHelpers.GetRandomKey(_config.Url);
+            link.Key = key;
+
+            var shortUrl = UrlHelpers.GetShortUrl(_config.Url.OverrideUrl!, Request, link.Key);
+
+            link.Url = shortUrl;
+
+            return Task.CompletedTask;
         }
 
 

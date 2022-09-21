@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PS.LinkShortening.Domain.Entities;
 
 namespace PS.LinkShortening.DAL.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -15,4 +16,5 @@ namespace PS.LinkShortening.DAL.Data
         public DbSet<AuthTokenItem> AuthTokenItems { get; set; } = null!;
 
     }
+
 }

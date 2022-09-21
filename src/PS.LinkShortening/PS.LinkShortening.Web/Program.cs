@@ -9,10 +9,11 @@ builder.Services.AddDefinitions(builder, typeof(Program));
 
 
 var app = builder.Build();
-app.UseDefinitions();
+
 
 using(var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
+    await DataInitializer.InitializerAsync(scope.ServiceProvider);
 }
+
+app.UseDefinitions();

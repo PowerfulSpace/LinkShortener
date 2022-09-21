@@ -17,8 +17,8 @@ namespace PS.LinkShortening.Web.Definitions.Common
                 options.SizeLimit = config.Cache.ItemLimit;
             });
 
-            services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
+            services.AddControllersWithViews();
+                //.AddRazorRuntimeCompilation();
         }
 
         public override void ConfigureApplication(WebApplication app, IWebHostEnvironment environment)
